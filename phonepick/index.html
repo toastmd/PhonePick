@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" class="auto"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PhonePick 2026</title><meta name="description" content="Compare the specs of 2026 phones and get a recommendation on features and price.">
+<meta name="theme-color" content="#0e1117"><link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="PhonePick 2026">
+<link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png">
+<style>
+:root{--bg:#0e1117;--panel:#161b24;--panel2:#1d2430;--line:#2a3342;--text:#e8edf5;--dim:#98a3b5;--accent:#22c1a0;--accent2:#3b82f6;--good:#3ecf8e;--bad:#ff6b6b;--warn:#ffc857;--r:16px;--safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root.auto{--bg:#f4f6fa;--panel:#fff;--panel2:#eef1f6;--line:#d9dfe9;--text:#161b24;--dim:#5b6678}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--text);font:16px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:var(--safe-t) 0 var(--safe-b);-webkit-text-size-adjust:100%}
+h1,h2,h3{margin:0;line-height:1.2}h1{font-size:22px}h2{font-size:18px}h3{font-size:15px}
+a{color:var(--accent)}button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:14px 16px 90px}
+.top{display:flex;align-items:center;gap:12px;padding:6px 0 14px}.top .logo{width:38px;height:38px;border-radius:10px}.top .grow{flex:1}.sub{color:var(--dim);font-size:13px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin:0 0 12px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>label.f{min-width:130px}.grow{flex:1}.col{display:flex;flex-direction:column;gap:8px}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:12px;padding:10px 16px;font-weight:600;cursor:pointer}.btn.ghost{background:var(--panel2);color:var(--text);border:1px solid var(--line)}.btn.small{padding:6px 11px;font-size:14px;border-radius:10px}.btn.danger{background:var(--bad)}.btn:active{transform:scale(.97)}
+input,select,textarea{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:9px 11px;width:100%}input[type=range]{padding:0;accent-color:var(--accent)}input[type=checkbox]{width:auto}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--dim)}
+.chip{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);font-size:12px;color:var(--dim);margin:0 6px 6px 0;cursor:pointer}.chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tabs{display:flex;gap:6px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5;overflow-x:auto}.tabs button{flex:1;min-width:max-content;background:var(--panel);border:1px solid var(--line);color:var(--dim);border-radius:12px;padding:9px 14px;font-weight:600;cursor:pointer}.tabs button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.big{font-size:38px;font-weight:800;letter-spacing:-.02em}.muted{color:var(--dim)}.good{color:var(--good)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+.modal{position:fixed;inset:0;background:#000a;display:none;align-items:flex-end;justify-content:center;z-index:50}.modal.on{display:flex}.sheet{background:var(--panel);border-radius:20px 20px 0 0;width:100%;max-width:640px;max-height:88vh;overflow:auto;padding:16px 16px calc(20px + var(--safe-b))}
+@media(min-width:700px){.modal{align-items:center}.sheet{border-radius:20px}}
+.toast{position:fixed;left:50%;bottom:calc(24px + var(--safe-b));transform:translateX(-50%);background:var(--panel2);border:1px solid var(--line);padding:10px 16px;border-radius:12px;z-index:99;opacity:0;pointer-events:none;transition:opacity .25s}.toast.on{opacity:1}
+table{border-collapse:collapse;width:100%}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:14px;vertical-align:top}th{color:var(--dim);font-weight:600}
+.bar{height:10px;border-radius:6px;background:var(--panel2);overflow:hidden}.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:6px}
+.foot{color:var(--dim);font-size:12px;text-align:center;padding:20px 0}
+</style></head><body>
+
+<div class="wrap">
+ <div class="top"><img class="logo" src="icon-192.png" alt=""><div class="grow"><h1>PhonePick 2026</h1><div class="sub">Compare 2026 phones and get a recommendation</div></div></div>
+ <div class="tabs"><button data-tab="pick" class="on">Recommend</button><button data-tab="browse">Browse</button><button data-tab="compare">Compare</button></div>
+ <div id="tab-pick"></div><div id="tab-browse" hidden></div><div id="tab-compare" hidden></div>
+ <div class="foot" id="foot"></div>
+</div>
+<div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
+
+<div class="toast" id="toast"></div>
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2200)}
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+<script>
+
+// Specs compiled in October 2026 from manufacturer pages and press coverage. Prices are US launch list prices (USD) for the base model.
+// perf / cam / disp are editorial 0-10 estimates from the specs (not lab tests). null = not confirmed: the app treats it as an average value.
+const PHONES=[
+{id:'s26u',brand:'Samsung',name:'Galaxy S26 Ultra',os:'Android',type:'Flagship',rel:'2026-03',price:1299.99,pnote:'Some outlets report a US increase of about $100 around Oct 2026.',size:6.9,dtype:'LTPO AMOLED 2X, 1440x3120, 120Hz, 2600 nits',chip:'Snapdragon 8 Elite Gen 5 for Galaxy',ram:'12 / 16GB',storage:'256GB / 512GB / 1TB',cams:'200MP main, 50MP ultrawide, 10MP 3x and 50MP 5x telephotos; 12MP front',mp:200,tele:5,mah:5000,vh:null,wired:60,wireless:25,g:214,ip:'IP68',upd:7,perf:9.8,cam:9.6,disp:9.8,extra:'S Pen, Privacy Display'},
+{id:'s26p',brand:'Samsung',name:'Galaxy S26+',os:'Android',type:'Flagship',rel:'2026-03',price:1099.99,pnote:'',size:6.7,dtype:'Dynamic AMOLED 2X, 120Hz',chip:'Snapdragon 8 Elite Gen 5 (US) / Exynos 2600',ram:'12GB',storage:'256GB / 512GB',cams:'50MP main, 12MP ultrawide, 10MP 3x telephoto',mp:50,tele:3,mah:4900,vh:null,wired:45,wireless:null,g:190,ip:'IP68',upd:7,perf:9.3,cam:8.4,disp:9.0,extra:''},
+{id:'s26',brand:'Samsung',name:'Galaxy S26',os:'Android',type:'Flagship',rel:'2026-03',price:899.99,pnote:'Some outlets report a US increase of about $100 around Oct 2026.',size:6.3,dtype:'Dynamic AMOLED 2X, 120Hz',chip:'Snapdragon 8 Elite Gen 5 (US) / Exynos 2600',ram:'12GB',storage:'256GB / 512GB',cams:'50MP main, 12MP ultrawide, 10MP 3x telephoto',mp:50,tele:3,mah:4300,vh:null,wired:25,wireless:null,g:167,ip:'IP68',upd:7,perf:9.3,cam:8.3,disp:8.7,extra:'Compact flagship'},
+{id:'s26fe',brand:'Samsung',name:'Galaxy S26 FE',os:'Android',type:'Midrange',rel:'2026-09',price:699.99,pnote:'$599.99 during a promotion in October 2026.',size:6.7,dtype:'Dynamic AMOLED 2X, 120Hz',chip:null,ram:'8GB',storage:'128GB to 512GB',cams:null,mp:null,tele:null,mah:4900,vh:null,wired:45,wireless:null,g:null,ip:null,upd:null,perf:7.4,cam:7.3,disp:8.3,extra:''},
+{id:'zflip8',brand:'Samsung',name:'Galaxy Z Flip8',os:'Android',type:'Foldable',rel:'2026-07',price:1199,pnote:'$100 above the Flip7.',size:6.9,dtype:'6.9" inner LTPO AMOLED 120Hz + 4.1" cover screen',chip:'Exynos 2600 (2nm; Snapdragon in some regions)',ram:'12GB',storage:'256GB / 512GB',cams:'50MP main, 12MP ultrawide; 10MP front',mp:50,tele:null,mah:4300,vh:31,wired:25,wireless:15,g:180,ip:null,upd:null,perf:9.0,cam:7.2,disp:8.4,extra:'Clamshell foldable, 6.1mm unfolded'},
+{id:'zfold8',brand:'Samsung',name:'Galaxy Z Fold8',os:'Android',type:'Foldable',rel:'2026-07',price:1899.99,pnote:'',size:7.6,dtype:'7.6" inner LTPO AMOLED 120Hz (1848x2448)',chip:'Snapdragon 8 Elite Gen 5 for Galaxy',ram:'12 / 16GB',storage:'256GB / 512GB / 1TB',cams:'50MP main + 50MP dual rear (no telephoto); 10MP + 10MP front',mp:50,tele:null,mah:4800,vh:null,wired:45,wireless:null,g:201,ip:'IP48',upd:null,perf:9.6,cam:7.8,disp:9.4,extra:'Book-style foldable'},
+{id:'px11',brand:'Google',name:'Pixel 11',os:'Android',type:'Flagship',rel:'2026-08',price:899,pnote:'Launch price reported by several outlets.',size:6.3,dtype:'OLED, 120Hz',chip:'Google Tensor G6',ram:'12GB',storage:'256GB / 512GB',cams:'48MP main, 13MP ultrawide, 10.8MP 5x telephoto',mp:48,tele:5,mah:4985,vh:null,wired:30,wireless:25,g:197,ip:null,upd:7,perf:8.3,cam:9.0,disp:8.7,extra:'Android 17, Qi2 charging'},
+{id:'px11p',brand:'Google',name:'Pixel 11 Pro',os:'Android',type:'Flagship',rel:'2026-08',price:1099,pnote:'$100 above the Pixel 10 Pro.',size:6.3,dtype:'LTPO OLED, 2856x1280, 1-120Hz',chip:'Google Tensor G6',ram:'12 / 16GB',storage:'256GB to 1TB',cams:'50MP main, 48MP ultrawide, 48MP 5x telephoto',mp:50,tele:5,mah:4850,vh:null,wired:30,wireless:25,g:204,ip:null,upd:7,perf:8.5,cam:9.3,disp:9.3,extra:'Android 17, Qi2 charging'},
+{id:'px11xl',brand:'Google',name:'Pixel 11 Pro XL',os:'Android',type:'Flagship',rel:'2026-08',price:1299,pnote:'',size:6.8,dtype:'LTPO OLED, 2992x1344, up to 3,600 nits',chip:'Google Tensor G6',ram:'12 / 16GB',storage:'256GB to 1TB',cams:'50MP main, 48MP ultrawide, 48MP 5x telephoto',mp:50,tele:5,mah:5115,vh:null,wired:45,wireless:25,g:226,ip:null,upd:7,perf:8.5,cam:9.3,disp:9.5,extra:'Android 17, Qi2 charging'},
+{id:'px11f',brand:'Google',name:'Pixel 11 Pro Fold',os:'Android',type:'Foldable',rel:'2026-08',price:1899,pnote:'Some outlets list $1,999.',size:8.0,dtype:'8" inner OLED 120Hz + 6.4 to 6.5" cover screen',chip:'Google Tensor G6',ram:'12 / 16GB',storage:'256GB to 1TB',cams:'48MP main, 10.5MP ultrawide, 10.8MP telephoto',mp:48,tele:null,mah:4750,vh:null,wired:30,wireless:25,g:239,ip:null,upd:7,perf:8.5,cam:8.2,disp:9.2,extra:'Android 17'},
+{id:'px10a',brand:'Google',name:'Pixel 10a',os:'Android',type:'Midrange',rel:'2026-03',price:499,pnote:'',size:6.3,dtype:'OLED, 120Hz',chip:'Google Tensor G4',ram:'8GB',storage:'128GB / 256GB',cams:'48MP main, 13MP ultrawide',mp:48,tele:null,mah:null,vh:null,wired:null,wireless:null,g:null,ip:null,upd:7,perf:6.2,cam:7.4,disp:8.0,extra:'Seven years of updates at $499'},
+{id:'i18p',brand:'Apple',name:'iPhone 18 Pro',os:'iOS',type:'Flagship',rel:'2026-09',price:1199,pnote:'$100 above the iPhone 17 Pro.',size:6.3,dtype:'Super Retina XDR OLED, Always-On, ProMotion',chip:'Apple A20 Pro (2nm)',ram:'12GB (reported)',storage:'256GB to 2TB',cams:'48MP variable-aperture main, 48MP ultrawide, 48MP 4x telephoto; 18MP front',mp:48,tele:4,mah:null,vh:36,wired:null,wireless:null,g:211,ip:null,upd:null,perf:10,cam:9.4,disp:9.3,extra:'Apple video-playback rating up to 36 hours'},
+{id:'i18pm',brand:'Apple',name:'iPhone 18 Pro Max',os:'iOS',type:'Flagship',rel:'2026-09',price:1299,pnote:'',size:6.9,dtype:'Super Retina XDR OLED, Always-On, ProMotion',chip:'Apple A20 Pro (2nm)',ram:'12GB (reported)',storage:'256GB to 2TB',cams:'48MP variable-aperture main, 48MP ultrawide, 48MP 4x telephoto; 18MP front',mp:48,tele:4,mah:null,vh:45,wired:null,wireless:null,g:249,ip:null,upd:null,perf:10,cam:9.4,disp:9.5,extra:'Best battery life of any iPhone: up to 45 hours of video'},
+{id:'n4ap',brand:'Nothing',name:'Phone (4a) Pro',os:'Android',type:'Midrange',rel:'2026-03',price:499,pnote:'',size:null,dtype:null,chip:null,ram:null,storage:'128GB and up',cams:'50MP main, 50MP 3.5x periscope telephoto',mp:50,tele:3.5,mah:5080,vh:null,wired:null,wireless:null,g:null,ip:null,upd:null,perf:6.4,cam:7.6,disp:7.8,extra:'Nothing OS 5.0'},
+{id:'a37',brand:'Samsung',name:'Galaxy A37 5G',os:'Android',type:'Midrange',rel:'2026-03',price:449.99,pnote:'',size:null,dtype:'AMOLED',chip:null,ram:'6GB',storage:'128GB',cams:null,mp:null,tele:null,mah:null,vh:null,wired:null,wireless:null,g:null,ip:null,upd:null,perf:5.2,cam:6.4,disp:7.4,extra:'Samsung Galaxy AI features at a lower price'},
+];
+const KEY='phonepick.custom.v1', DEF={perf:5,cam:5,batt:5,disp:5,soft:3,charge:2,value:5,budget:2100,os:'Any',folds:true,size:'Any'};
+let custom=store.get(KEY,[]), PREF=store.get('phonepick.pref.v1',DEF), A=store.get('phonepick.A',null), B=store.get('phonepick.B',null);
+const all=()=>[...PHONES,...custom];
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const money=n=>'$'+Math.round(n).toLocaleString();
+const battScore=p=>p.mah?clamp(p.mah/550,0,10):p.vh?clamp(p.vh/4.5,0,10):null;
+const chargeScore=p=>p.wired?clamp(p.wired/6,0,10)+(p.wireless&&p.wireless>=25?0.4:0):null;
+const softScore=p=>p.upd?clamp(p.upd/7*10,0,10):null;
+const avg=(x,d)=>x==null?d:x;
+function scores(p){ return {perf:avg(p.perf,5),cam:avg(p.cam,5),disp:avg(p.disp,6),batt:avg(battScore(p),6),charge:avg(chargeScore(p),5),soft:avg(softScore(p),6)}; }
+function features(p,w=PREF){ const s=scores(p), W={perf:w.perf,cam:w.cam,disp:w.disp,batt:w.batt,charge:w.charge,soft:w.soft}; const sum=Object.values(W).reduce((a,b)=>a+b,0)||1; return Object.keys(W).reduce((a,k)=>a+s[k]*W[k],0)/sum; }
+const afford=p=>clamp(10*(1-(p.price-399)/(2100-399)),0,10);
+const known=p=>[p.chip,p.mah||p.vh,p.wired,p.cams,p.ram,p.upd].filter(x=>x!=null&&x!=='').length;
+const conf=p=>0.9+0.1*known(p)/6; // phones with unconfirmed specs get a small penalty
+const overall=(p,w=PREF)=>features(p,w)*conf(p)*(1-w.value/10)+afford(p)*(w.value/10);
+const valueIdx=p=>features(p,{perf:5,cam:5,disp:5,batt:5,soft:3,charge:2})/Math.pow(p.price/1000,0.6);
+const sizeOk=(p,w)=>w.size==='Any'||p.size==null||(w.size==='Compact'?p.size<=6.4:w.size==='Large'?p.size>=6.7:p.size>6.4&&p.size<6.7);
+function eligible(w=PREF){ return all().filter(p=>p.price<=w.budget&&(w.os==='Any'||p.os===w.os)&&(w.folds||p.type!=='Foldable')&&sizeOk(p,w)); }
+const fmtRel=r=>{const [y,m]=r.split('-');return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1]+' '+y};
+const row=(k,v)=>v==null||v===''?'':`<div class="sub"><b style="color:var(--text)">${k}</b> ${esc(v)}</div>`;
+
+// ---------- tabs ----------
+function tab(t){ $$('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===t)); ['pick','browse','compare'].forEach(x=>$('#tab-'+x).hidden=x!==t); if(t==='pick')renderPick(); if(t==='browse')renderBrowse(); if(t==='compare')renderCompare(); }
+$$('.tabs button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
+
+// ---------- recommend ----------
+function slider(k,label,max=10){ return `<label class="f"><span class="row"><span class="grow">${label}</span><b style="color:var(--text)" id="v_${k}">${PREF[k]}</b></span><input type="range" min="0" max="${max}" step="1" value="${PREF[k]}" data-k="${k}"></label>`; }
+function renderPick(){
+  const el=$('#tab-pick');
+  el.innerHTML=`<div class="card"><h2>What matters to you?</h2><p class="sub">Slide to set priorities (0 = don't care, 10 = essential). The recommendation balances features against price.</p>
+   <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">${slider('cam','Camera')}${slider('batt','Battery life')}${slider('perf','Speed and performance')}${slider('disp','Display')}${slider('soft','Years of software updates')}${slider('charge','Fast charging')}</div>
+   <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+   <label class="f"><span class="row"><span class="grow">How much should price count?</span><b style="color:var(--text)" id="v_value">${['Features first','','','','','Balanced','','','','','Cheapest wins'][PREF.value]||PREF.value}</b></span><input type="range" min="0" max="10" step="1" value="${PREF.value}" data-k="value"></label>
+   <div class="grid" style="margin-top:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))">
+    <label class="f">Max budget<select data-k="budget">${[500,700,900,1100,1300,1500,2100].map(b=>`<option value="${b}" ${PREF.budget===b?'selected':''}>${b>=2100?'No limit':'Up to '+money(b)}</option>`).join('')}</select></label>
+    <label class="f">Platform<select data-k="os">${['Any','Android','iOS'].map(o=>`<option ${PREF.os===o?'selected':''}>${o}</option>`).join('')}</select></label>
+    <label class="f">Size<select data-k="size">${['Any','Compact','Medium','Large'].map(o=>`<option ${PREF.size===o?'selected':''}>${o}</option>`).join('')}</select></label>
+    <label class="f">Foldables<select data-k="folds"><option value="1" ${PREF.folds?'selected':''}>Include</option><option value="0" ${!PREF.folds?'selected':''}>Skip</option></select></label></div></div><div id="results"></div>`;
+  $$('#tab-pick [data-k]').forEach(i=>{ i.oninput=i.onchange=()=>{ const k=i.dataset.k; PREF[k]=['os','size'].includes(k)?i.value:k==='folds'?i.value==='1':+i.value; store.set('phonepick.pref.v1',PREF); const v=$('#v_'+k); if(v) v.textContent=k==='value'?(PREF.value<=1?'Features first':PREF.value>=9?'Cheapest wins':PREF.value===5?'Balanced':PREF.value):PREF[k]; results(); }; });
+  results();
+}
+function why(p){ const s=scores(p), arr=[['camera',s.cam,PREF.cam],['battery',s.batt,PREF.batt],['speed',s.perf,PREF.perf],['display',s.disp,PREF.disp],['updates',s.soft,PREF.soft],['charging',s.charge,PREF.charge]].filter(x=>x[2]>0).sort((a,b)=>b[1]*b[2]-a[1]*a[2]).slice(0,2).map(x=>x[0]); return `Strong on ${arr.join(' and ')}`; }
+function results(){
+  const el=$('#results'), pool=eligible(); if(!pool.length){ el.innerHTML='<div class="card"><p>No phones match those filters. Raise the budget or relax the platform and size.</p></div>'; return; }
+  const ranked=[...pool].sort((a,b)=>overall(b)-overall(a)), top=ranked.slice(0,3);
+  const bestFeat=[...pool].sort((a,b)=>features(b)-features(a))[0], bestVal=[...pool].sort((a,b)=>valueIdx(b)-valueIdx(a))[0], cheapestGood=[...pool].filter(p=>features(p)>=7).sort((a,b)=>a.price-b.price)[0];
+  el.innerHTML=`<h2 style="margin:6px 0 10px">Our picks for you</h2>`+top.map((p,i)=>`<div class="card" style="${i===0?'border-color:var(--accent)':''}"><div class="row"><div class="grow"><div class="sub">${i===0?'BEST OVERALL':'#'+(i+1)}</div><h2>${esc(p.brand)} ${esc(p.name)}</h2><div class="sub">${money(p.price)} · ${fmtRel(p.rel)} · ${esc(p.type)} · ${esc(p.os)}</div></div><div style="text-align:right"><div class="big" style="font-size:30px">${overall(p).toFixed(1)}</div><div class="sub">match score /10</div></div></div>
+   <p>${esc(why(p))}. Features ${features(p).toFixed(1)}/10, affordability ${afford(p).toFixed(1)}/10.</p>${p.pnote?`<p class="sub">Price note: ${esc(p.pnote)}</p>`:''}${known(p)<6?`<p class="sub">${6-known(p)} key spec${6-known(p)===1?'':'s'} not yet confirmed, so treat this score as provisional.</p>`:''}<div class="row"><button class="btn small" data-cmp="${p.id}">Compare</button><button class="btn small ghost" data-det="${p.id}">Full specs</button></div></div>`).join('')
+   +`<div class="card"><h3>Also worth knowing</h3><p><b>Most features:</b> ${esc(bestFeat.name)} (${features(bestFeat).toFixed(1)}/10, ${money(bestFeat.price)})</p><p><b>Best value for the money:</b> ${esc(bestVal.name)} (${money(bestVal.price)})</p>${cheapestGood?`<p><b>Cheapest great phone</b> (features 7+): ${esc(cheapestGood.name)} at ${money(cheapestGood.price)}</p>`:''}</div>`
+   +`<div class="card"><h3>How the score works</h3><p class="sub">Features are a weighted average of six 0-10 scores (camera, battery, performance, display, software updates, charging) using your sliders. Battery is scored from capacity (or Apple's video-hours rating), charging from wattage, updates from promised years. Performance, camera and display scores are our estimates from the specs, not lab tests. Match score blends features with affordability, weighted by your price slider. Missing specs count as average and cost a small confidence penalty.</p></div>`;
+  $$('#results [data-cmp]').forEach(b=>b.onclick=()=>{ if(!A||A===b.dataset.cmp) A=b.dataset.cmp; else B=b.dataset.cmp; store.set('phonepick.A',A); store.set('phonepick.B',B); tab('compare'); });
+  $$('#results [data-det]').forEach(b=>b.onclick=()=>detail(b.dataset.det));
+}
+
+// ---------- browse ----------
+let BR={brand:'All',type:'All',sort:'price'};
+function renderBrowse(){
+  const brands=['All',...new Set(all().map(p=>p.brand))], types=['All','Flagship','Foldable','Midrange'];
+  let list=all().filter(p=>(BR.brand==='All'||p.brand===BR.brand)&&(BR.type==='All'||p.type===BR.type));
+  list.sort((a,b)=>BR.sort==='price'?a.price-b.price:BR.sort==='priceD'?b.price-a.price:BR.sort==='features'?features(b)-features(a):BR.sort==='value'?valueIdx(b)-valueIdx(a):b.rel.localeCompare(a.rel));
+  $('#tab-browse').innerHTML=`<div class="card"><div>${brands.map(b=>`<span class="chip ${BR.brand===b?'on':''}" data-b="${b}">${esc(b)}</span>`).join('')}</div><div>${types.map(t=>`<span class="chip ${BR.type===t?'on':''}" data-t="${t}">${t}</span>`).join('')}</div>
+   <div class="row"><label class="f grow">Sort<select id="brSort">${[['price','Price, low to high'],['priceD','Price, high to low'],['features','Most features'],['value','Best value'],['new','Newest']].map(o=>`<option value="${o[0]}" ${BR.sort===o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></label><button class="btn ghost small" id="addCustom">+ Add a phone</button></div></div>
+   <div class="grid">${list.map(p=>`<div class="card"><div class="sub">${esc(p.brand)} · ${fmtRel(p.rel)} · ${esc(p.type)}</div><h2>${esc(p.name)}</h2><div class="big" style="font-size:26px">${money(p.price)}</div>
+     ${row('Display',p.size?p.size+'"':null)}${row('Chip',p.chip)}${row('Battery',p.mah?p.mah+' mAh':p.vh?'up to '+p.vh+' h video':null)}${row('Cameras',p.cams)}
+     <div class="row" style="margin-top:8px"><span class="chip">Features ${features(p).toFixed(1)}</span><span class="chip">Value ${afford(p).toFixed(1)}</span>${p.custom?'<span class="chip">yours</span>':''}</div>
+     <div class="row"><button class="btn small" data-cmp="${p.id}">Compare</button><button class="btn small ghost" data-det="${p.id}">Full specs</button></div></div>`).join('')}</div>`;
+  $$('#tab-browse [data-b]').forEach(c=>c.onclick=()=>{BR.brand=c.dataset.b;renderBrowse()}); $$('#tab-browse [data-t]').forEach(c=>c.onclick=()=>{BR.type=c.dataset.t;renderBrowse()});
+  $('#brSort').onchange=e=>{BR.sort=e.target.value;renderBrowse()}; $('#addCustom').onclick=addCustom;
+  $$('#tab-browse [data-cmp]').forEach(b=>b.onclick=()=>{ if(!A||A===b.dataset.cmp) A=b.dataset.cmp; else B=b.dataset.cmp; store.set('phonepick.A',A); store.set('phonepick.B',B); toast('Added to Compare'); if(A&&B) tab('compare'); });
+  $$('#tab-browse [data-det]').forEach(b=>b.onclick=()=>detail(b.dataset.det));
+}
+function detail(id){ const p=all().find(x=>x.id===id), s=scores(p); $('#sheet').innerHTML=`<h2>${esc(p.brand)} ${esc(p.name)}</h2><div class="sub">${fmtRel(p.rel)} · ${esc(p.type)} · ${esc(p.os)}</div><table style="margin-top:8px">${specRows(p).map(r=>`<tr><th>${r[0]}</th><td>${esc(r[1])}</td></tr>`).join('')}</table>
+  ${['perf','cam','disp','batt','charge','soft'].map(k=>`<div class="row" style="margin:6px 0"><span style="width:92px" class="sub">${{perf:'Performance',cam:'Camera',disp:'Display',batt:'Battery',charge:'Charging',soft:'Updates'}[k]}</span><div class="grow bar"><i style="width:${s[k]*10}%"></i></div><b style="width:34px;text-align:right">${s[k].toFixed(1)}</b></div>`).join('')}
+  <div class="row" style="margin-top:12px">${p.custom?'<button class="btn danger" id="delC">Delete</button>':''}<span class="grow"></span><button class="btn" id="closeM">Close</button></div>`; $('#modal').classList.add('on'); $('#closeM').onclick=()=>$('#modal').classList.remove('on'); if(p.custom) $('#delC').onclick=()=>{custom=custom.filter(c=>c.id!==id);store.set(KEY,custom);$('#modal').classList.remove('on');renderBrowse()}; }
+function specRows(p){ const r=[['Price (US, base)',money(p.price)+(p.pnote?'. '+p.pnote:'')],['Released',fmtRel(p.rel)],['Screen',[p.size?p.size+' inch':null,p.dtype].filter(Boolean).join(', ')],['Chip',p.chip],['RAM',p.ram],['Storage',p.storage],['Cameras',p.cams],['Battery',p.mah?p.mah+' mAh':null],['Video playback',p.vh?'up to '+p.vh+' hours':null],['Wired charging',p.wired?p.wired+' W':null],['Wireless charging',p.wireless?p.wireless+' W':null],['Weight',p.g?p.g+' g':null],['Water and dust',p.ip],['Software updates',p.upd?p.upd+' years':null],['Extras',p.extra]]; return r.map(x=>[x[0],x[1]==null||x[1]===''?'Not confirmed':x[1]]); }
+
+// ---------- compare ----------
+function renderCompare(){
+  const L=all(), sel=(k,v)=>`<select data-s="${k}"><option value="">Choose a phone</option>${L.map(p=>`<option value="${p.id}" ${v===p.id?'selected':''}>${esc(p.brand+' '+p.name)}</option>`).join('')}</select>`;
+  const a=L.find(p=>p.id===A), b=L.find(p=>p.id===B);
+  let h=`<div class="card"><div class="grid" style="grid-template-columns:1fr 1fr">${sel('A',A)}${sel('B',B)}</div></div>`;
+  if(a&&b){
+    const cats=[['Price',a.price,b.price,true],['Performance',scores(a).perf,scores(b).perf],['Camera',scores(a).cam,scores(b).cam],['Display',scores(a).disp,scores(b).disp],['Battery',scores(a).batt,scores(b).batt],['Charging',scores(a).charge,scores(b).charge],['Software updates',scores(a).soft,scores(b).soft]];
+    let wa=0,wb=0; cats.forEach(c=>{const d=c[1]-c[2]; if(Math.abs(d)<0.05)return; const aw=c[3]?d<0:d>0; aw?wa++:wb++;});
+    const fa=features(a),fb=features(b),oa=overall(a),ob=overall(b), w=oa>=ob?a:b, l=w===a?b:a;
+    h+=`<div class="card" style="border-color:var(--accent)"><h3>Verdict</h3><p><b>${esc(w.brand+' '+w.name)}</b> is the better pick for your priorities (match ${overall(w).toFixed(1)} vs ${overall(l).toFixed(1)}).</p><p class="sub">${esc(a.name)} wins ${wa} categories and ${esc(b.name)} wins ${wb}. The price gap is ${money(Math.abs(a.price-b.price))} (${a.price<b.price?esc(a.name):esc(b.name)} is cheaper). On raw features (equal weights): ${esc(a.name)} ${features(a,{perf:5,cam:5,disp:5,batt:5,soft:5,charge:5}).toFixed(1)} vs ${esc(b.name)} ${features(b,{perf:5,cam:5,disp:5,batt:5,soft:5,charge:5}).toFixed(1)}.</p></div>`;
+    const ra=specRows(a), rb=specRows(b);
+    h+=`<div class="card" style="overflow:auto"><table><tr><th></th><th>${esc(a.name)}</th><th>${esc(b.name)}</th></tr>`
+      +ra.map((r,i)=>{ const num=(k)=>({'Price (US, base)':[a.price,b.price,true],'Battery':[a.mah,b.mah],'Wired charging':[a.wired,b.wired],'Wireless charging':[a.wireless,b.wireless],'Weight':[a.g,b.g,true],'Software updates':[a.upd,b.upd],'Screen':[a.size,b.size]}[k]); const n=num(r[0]); let ca='',cb=''; if(n&&n[0]!=null&&n[1]!=null&&n[0]!==n[1]){ const aw=n[2]?n[0]<n[1]:n[0]>n[1]; if(aw) ca='good'; else cb='good'; }
+        return `<tr><th>${r[0]}</th><td class="${ca}">${esc(r[1])}</td><td class="${cb}">${esc(rb[i][1])}</td></tr>`}).join('')
+      +['perf','cam','disp','batt','charge','soft'].map(k=>{const sa=scores(a)[k],sb=scores(b)[k];return `<tr><th>${{perf:'Performance score',cam:'Camera score',disp:'Display score',batt:'Battery score',charge:'Charging score',soft:'Updates score'}[k]}</th><td class="${sa>sb+.04?'good':''}">${sa.toFixed(1)}</td><td class="${sb>sa+.04?'good':''}">${sb.toFixed(1)}</td></tr>`}).join('')
+      +`</table><p class="sub">Green marks the better value in each row. Scores are estimates from the specs.</p></div>`;
+  } else h+=`<div class="card"><p>Pick two phones to compare them side by side. You can also tap Compare on any phone in Recommend or Browse.</p></div>`;
+  $('#tab-compare').innerHTML=h; $$('#tab-compare [data-s]').forEach(s=>s.onchange=()=>{ if(s.dataset.s==='A')A=s.value||null; else B=s.value||null; store.set('phonepick.A',A);store.set('phonepick.B',B); renderCompare(); });
+}
+function addCustom(){ $('#sheet').innerHTML=`<h2>Add a phone</h2><p class="sub">Add any phone (including ones released outside the US) so you can compare it. Saved on this device.</p><div class="col">
+  <label class="f">Brand<input id="cBrand" placeholder="e.g. Xiaomi"></label><label class="f">Model<input id="cName" placeholder="e.g. 17 Ultra"></label>
+  <div class="row"><label class="f grow">Price (USD)<input id="cPrice" type="number" min="1"></label><label class="f grow">Screen (inches)<input id="cSize" type="number" step="0.1"></label></div>
+  <div class="row"><label class="f grow">Battery (mAh)<input id="cMah" type="number"></label><label class="f grow">Wired charging (W)<input id="cW" type="number"></label></div>
+  <div class="row"><label class="f grow">Chip<input id="cChip"></label><label class="f grow">Platform<select id="cOs"><option>Android</option><option>iOS</option></select></label></div>
+  <label class="f">Performance (0-10): <b id="o1">7</b><input type="range" min="0" max="10" step="0.5" value="7" id="cPerf"></label><label class="f">Camera (0-10): <b id="o2">7</b><input type="range" min="0" max="10" step="0.5" value="7" id="cCam"></label><label class="f">Display (0-10): <b id="o3">7</b><input type="range" min="0" max="10" step="0.5" value="7" id="cDisp"></label></div>
+  <div class="row" style="margin-top:12px"><span class="grow"></span><button class="btn ghost" id="cCancel">Cancel</button><button class="btn" id="cSave">Save</button></div>`;
+  [['cPerf','o1'],['cCam','o2'],['cDisp','o3']].forEach(([a,b])=>$('#'+a).oninput=e=>$('#'+b).textContent=e.target.value);
+  $('#cCancel').onclick=()=>$('#modal').classList.remove('on');
+  $('#cSave').onclick=()=>{ const n=$('#cName').value.trim(), pr=parseFloat($('#cPrice').value); if(!n||!(pr>0)){toast('Enter a model and a price');return}
+    custom.push({id:'c'+Date.now(),custom:true,brand:$('#cBrand').value.trim()||'Other',name:n,os:$('#cOs').value,type:'Flagship',rel:'2026-01',price:pr,size:parseFloat($('#cSize').value)||null,chip:$('#cChip').value||null,mah:parseInt($('#cMah').value)||null,wired:parseInt($('#cW').value)||null,perf:+$('#cPerf').value,cam:+$('#cCam').value,disp:+$('#cDisp').value});
+    store.set(KEY,custom); $('#modal').classList.remove('on'); renderBrowse(); toast('Added'); };
+  $('#modal').classList.add('on'); }
+$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('on')};
+$('#foot').innerHTML='Specs compiled October 2026 from manufacturer pages and press coverage (Samsung, Google, Apple, Nothing and reviews). Prices are US launch prices and change often. Covers the major 2026 US releases, not every phone: add your own in Browse.';
+window.__phonepick={PHONES,features,afford,overall,eligible,scores,get PREF(){return PREF},results,tab};
+renderPick();
+
+</script></body></html>
